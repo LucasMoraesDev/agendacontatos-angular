@@ -1,0 +1,44 @@
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header bg-light text-center">
+                    <h4>Agenda de Contatos</h4>
+                </div>
+                <div class="card-body">
+
+
+                    <p class="text-center">Informe suas credenciais de acesso:</p>
+                    <hr />
+
+
+                    <form>
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label">Email de acesso:</label>
+                            <input type="email" class="form-control" id="inputEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputPassword" class="form-label">Senha de acesso:</label>
+                            <input type="password" class="form-control" id="inputPassword">
+                            <div class="text-end">
+                                <a [routerLink]="['/esqueci-minha-senha']">
+                                    Esqueci minha senha?
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-grid mb-2">
+                            <button type="submit" class="btn btn-primary btn-sm">Entrar na Agenda</button>
+                        </div>
+                    </form>
+
+
+                    <div class="d-grid">
+                        <a class="btn btn-success btn-sm" [routerLink]="['/criar-conta']">
+                            Criar conta de usuário
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
