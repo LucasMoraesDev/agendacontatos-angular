@@ -8,6 +8,19 @@
                 <div class="card-body">
 
 
+                    <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Sucesso!</strong> {{mensagemSucesso}}
+                        <button type="button" class="btn-close" aria-label="Close"
+                            (click)="mensagemSucesso = ''"></button>
+                    </div>
+
+
+                    <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Erro!</strong> {{mensagemErro}}
+                        <button type="button" class="btn-close" aria-label="Close" (click)="mensagemErro = ''"></button>
+                    </div>
+
+
                     <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
 
 
@@ -52,7 +65,8 @@
                             <label for="inputConfirmPassword" class="form-label">Confirme a sua senha:</label>
                             <input type="password" class="form-control" id="inputConfirmPassword"
                                 formControlName="senhaConfirmacao">
-                            <span class="text-danger" *ngIf="form.senhaConfirmacao.touched && form.senhaConfirmacao.invalid">
+                            <span class="text-danger"
+                                *ngIf="form.senhaConfirmacao.touched && form.senhaConfirmacao.invalid">
                                 <small *ngIf="form.senhaConfirmacao.errors.required">
                                     Por favor, confirme a senha do usuário.
                                 </small>
@@ -81,6 +95,3 @@
         </div>
     </div>
 </div>
-
-
-

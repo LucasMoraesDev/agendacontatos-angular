@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CriarContaRequest } from 'src/app/models/requests/criar-conta.request.model';
 import { CriarContaService } from 'src/app/services/criar-conta.service';
 import { MatchPasswordValidator } from 'src/app/validators/matchpassword.validator';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -13,10 +14,16 @@ import { MatchPasswordValidator } from 'src/app/validators/matchpassword.validat
 export class RegisterComponent {
 
 
+  //atributos
+  mensagemSucesso: string = '';
+  mensagemErro: string = '';
+
+
   //construtor
   constructor(
-    //declarando um atributo para injeção de dependência (inicialização)
-    private criarContaService: CriarContaService
+    //declarando os atributos para injeção de dependência (inicialização)
+    private criarContaService: CriarContaService,
+    private spinnerService: NgxSpinnerService
   ) {
   }
 
@@ -61,6 +68,10 @@ export class RegisterComponent {
   onSubmit(): void {
 
 
+    //exibindo o spinner
+    this.spinnerService.show();
+
+
     //criar um objeto contendo os dados que serão
     //enviados para o serviço de criação de conta
     let criarContaRequest: CriarContaRequest = {
@@ -70,19 +81,41 @@ export class RegisterComponent {
     };
 
 
+    //limpar as mensagens
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
+
+
     //executando a chamada para o serviço
     this.criarContaService.post(criarContaRequest)
       .subscribe({
         //bloco que captura o retorno de sucesso
         next: (response) => {
-          console.log(response);
+          //exibir mensagem na página
+          this.mensagemSucesso = `Parabéns ${response.nome}, sua conta foi criada com sucesso.`;
+          //limpar o formulário
+          this.formRegister.reset();
         },
         //bloco que captura o retorno de erro
         error: (e) => {
-          console.log(e.error);
+          switch (e.status) {
+            case 422:
+              this.mensagemErro = e.error.message;
+              break;
+            default:
+              this.mensagemErro = 'Falha ao cadastrar conta do usuário.';
+              break;
+          }
         }
+      }).add(() => {
+        this.spinnerService.hide();
       });
 
 
   }
 }
+
+
+
+
+
