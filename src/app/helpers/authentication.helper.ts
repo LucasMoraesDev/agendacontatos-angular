@@ -17,6 +17,35 @@ export class AuthenticationHelper {
     }
 
 
+    /*
+        Método para verificar se o usuário
+        está autenticado
+    */
+    isSignedIn(): boolean {
+        return localStorage.getItem('auth') != null;
+    }
+
+
+    /*
+        Método para retornar os dados
+        gravados na local storage
+    */
+    getData(): AutenticarResponse | null {
+        let data = localStorage.getItem('auth');
+        if (data != null)
+            return JSON.parse(data) as AutenticarResponse;
+        else
+            return null;
+    }
+
+
+    /*
+        Método para apagar o conteudo
+        da local storage
+    */
+    signOut(): void {
+        localStorage.removeItem('auth');
+    }
 }
 
 
