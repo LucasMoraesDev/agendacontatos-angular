@@ -5,12 +5,10 @@ import { CriarContaResponse } from "../models/responses/criar-conta.response.mod
 import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
 
-
 @Injectable({
     providedIn: 'root'
 })
 export class CriarContaService {
-
 
     //método construtor
     constructor(
@@ -20,7 +18,6 @@ export class CriarContaService {
     ) {
     }
 
-
     //método para fazer a requisição POST do serviço /criar-conta
     post(criarContaRequest: CriarContaRequest): Observable<CriarContaResponse> {
         return this.httpClient.post<CriarContaResponse>(
@@ -28,5 +25,3 @@ export class CriarContaService {
             criarContaRequest);
     }
 }
-
-

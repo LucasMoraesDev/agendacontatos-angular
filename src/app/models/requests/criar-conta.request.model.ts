@@ -1,5 +1,5 @@
 /*
-    Classe de modelo de dados para a
+    Classe de modelo de dados para a 
     requisição do serviço POST /criar-conta
 */
 export class CriarContaRequest {
@@ -7,5 +7,3 @@ export class CriarContaRequest {
     email: string = '';
     senha: string = '';
 }
-
-

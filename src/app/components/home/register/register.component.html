@@ -7,22 +7,17 @@
                 </div>
                 <div class="card-body">
 
-
                     <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Sucesso!</strong> {{mensagemSucesso}}
-                        <button type="button" class="btn-close" aria-label="Close"
-                            (click)="mensagemSucesso = ''"></button>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="mensagemSucesso = ''"></button>
                     </div>
-
 
                     <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>Erro!</strong> {{mensagemErro}}
                         <button type="button" class="btn-close" aria-label="Close" (click)="mensagemErro = ''"></button>
                     </div>
 
-
                     <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
-
 
                         <div class="mb-2">
                             <label for="inputNome" class="form-label">Nome do usuário:</label>
@@ -81,9 +76,7 @@
                             </button>
                         </div>
 
-
                     </form>
-
 
                     <div class="d-grid">
                         <a class="btn btn-light btn-sm" [routerLink]="['/acessar-conta']">

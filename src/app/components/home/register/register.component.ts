@@ -5,7 +5,6 @@ import { CriarContaService } from 'src/app/services/criar-conta.service';
 import { MatchPasswordValidator } from 'src/app/validators/matchpassword.validator';
 import { NgxSpinnerService } from 'ngx-spinner';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,11 +12,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class RegisterComponent {
 
-
   //atributos
   mensagemSucesso: string = '';
   mensagemErro: string = '';
-
 
   //construtor
   constructor(
@@ -26,7 +23,6 @@ export class RegisterComponent {
     private spinnerService: NgxSpinnerService
   ) {
   }
-
 
   //Estrutura do formulário
   formRegister = new FormGroup({
@@ -56,21 +52,17 @@ export class RegisterComponent {
     ]
   });
 
-
   //função auxiliar para exibir os erros de validação
   //de cada campo (FormControl) do formulário
   get form(): any {
     return this.formRegister.controls;
   }
 
-
   //função para capturar o SUBMIT do formulário
   onSubmit(): void {
 
-
     //exibindo o spinner
     this.spinnerService.show();
-
 
     //criar um objeto contendo os dados que serão
     //enviados para o serviço de criação de conta
@@ -80,11 +72,9 @@ export class RegisterComponent {
       senha: this.formRegister.value.senha as string
     };
 
-
     //limpar as mensagens
     this.mensagemSucesso = '';
     this.mensagemErro = '';
-
 
     //executando a chamada para o serviço
     this.criarContaService.post(criarContaRequest)
@@ -111,11 +101,5 @@ export class RegisterComponent {
         this.spinnerService.hide();
       });
 
-
   }
 }
-
-
-
-
-

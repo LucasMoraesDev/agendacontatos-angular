@@ -5,7 +5,6 @@ import { AuthenticationHelper } from 'src/app/helpers/authentication.helper';
 import { AutenticarRequest } from 'src/app/models/requests/autenticar.request.model';
 import { AutenticarService } from 'src/app/services/autenticar.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,10 +12,8 @@ import { AutenticarService } from 'src/app/services/autenticar.service';
 })
 export class LoginComponent {
 
-
   //atributos
   mensagemErro: string = '';
-
 
   //construtor
   constructor(
@@ -26,32 +23,26 @@ export class LoginComponent {
   ) {
   }
 
-
   //estrutura do formulário
   formLogin = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     senha: new FormControl('', [Validators.required, Validators.minLength(8)])
   });
 
-
   //função para acessarmos os estados dos campos do formulário
   get form(): any {
     return this.formLogin.controls;
   }
 
-
   //função para capturar o Submit do formulário
   onSubmit(): void {
 
-
     this.spinnerService.show();
-
 
     let autenticarRequest: AutenticarRequest = {
       email: this.formLogin.value.email as string,
       senha: this.formLogin.value.senha as string
     };
-
 
     this.autenticarService.post(autenticarRequest)
       .subscribe({
@@ -76,7 +67,3 @@ export class LoginComponent {
       });
   }
 }
-
-
-
-

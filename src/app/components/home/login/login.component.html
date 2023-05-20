@@ -7,13 +7,15 @@
                 </div>
                 <div class="card-body">
 
-
                     <p class="text-center">Informe suas credenciais de acesso:</p>
                     <hr />
 
+                    <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Erro!</strong> {{mensagemErro}}
+                        <button type="button" class="btn-close" aria-label="Close" (click)="mensagemErro = ''"></button>
+                    </div>
 
                     <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-
 
                         <div class="mb-3">
                             <label for="inputEmail" class="form-label">Email de acesso:</label>
@@ -50,7 +52,6 @@
                             </button>
                         </div>
                     </form>
-
 
                     <div class="d-grid">
                         <a class="btn btn-success btn-sm" [routerLink]="['/criar-conta']">

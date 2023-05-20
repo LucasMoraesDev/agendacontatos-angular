@@ -5,18 +5,15 @@ import { AutenticarResponse } from "../models/responses/autenticar.response.mode
 import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
 
-
 @Injectable({
     providedIn: 'root'
 })
 export class AutenticarService {
 
-
     constructor(
         private httpClient: HttpClient
     ) {
     }
-
 
     post(autenticarRequest: AutenticarRequest): Observable<AutenticarResponse> {
         return this.httpClient.post<AutenticarResponse>
@@ -24,6 +21,3 @@ export class AutenticarService {
                 autenticarRequest);
     }
 }
-
-
-

@@ -1,12 +1,10 @@
 import { Injectable } from "@angular/core";
 import { AutenticarResponse } from "../models/responses/autenticar.response.model";
 
-
 @Injectable({
     providedIn: 'root'
 })
 export class AuthenticationHelper {
-
 
     /*
         Método para salvar os dados do usuário
@@ -16,7 +14,6 @@ export class AuthenticationHelper {
         localStorage.setItem('auth', JSON.stringify(data));
     }
 
-
     /*
         Método para verificar se o usuário
         está autenticado
@@ -24,7 +21,6 @@ export class AuthenticationHelper {
     isSignedIn(): boolean {
         return localStorage.getItem('auth') != null;
     }
-
 
     /*
         Método para retornar os dados
@@ -38,7 +34,6 @@ export class AuthenticationHelper {
             return null;
     }
 
-
     /*
         Método para apagar o conteudo
         da local storage
@@ -47,5 +42,3 @@ export class AuthenticationHelper {
         localStorage.removeItem('auth');
     }
 }
-
-

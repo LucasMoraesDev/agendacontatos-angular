@@ -1,5 +1,5 @@
 /*
-    Classe de modelo de dados para a
+    Classe de modelo de dados para a 
     resposta do serviço POST /autenticar
 */
 export class AutenticarResponse {

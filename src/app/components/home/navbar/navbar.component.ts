@@ -3,7 +3,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthenticationHelper } from 'src/app/helpers/authentication.helper';
 import { AutenticarResponse } from 'src/app/models/responses/autenticar.response.model';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -11,10 +10,8 @@ import { AutenticarResponse } from 'src/app/models/responses/autenticar.response
 })
 export class NavbarComponent implements OnInit {
 
-
   //atributo
   auth: AutenticarResponse | null = null;
-
 
   //método construtor
   constructor(
@@ -23,7 +20,6 @@ export class NavbarComponent implements OnInit {
   ) {
   }
 
-
   //método executado sempre antes do
   //componente ser carregado
   ngOnInit(): void {
@@ -31,7 +27,6 @@ export class NavbarComponent implements OnInit {
     //gravado na local storage
     this.auth = this.authenticationHelper.getData();
   }
-
 
   //método para realizar o logout do usuário
   logout(): void {
@@ -42,7 +37,3 @@ export class NavbarComponent implements OnInit {
     }
   }
 }
-
-
-
-

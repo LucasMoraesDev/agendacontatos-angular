@@ -1,14 +1,11 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
+import { CanActivate, Router } from "@angular/router";
 import { AuthenticationHelper } from "../helpers/authentication.helper";
-import { Observable } from "rxjs";
-
 
 @Injectable({
     providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
-
 
     //método construtor
     constructor(
@@ -16,7 +13,6 @@ export class AdminGuard implements CanActivate {
         private router: Router
     ) {
     }
-
 
     //método para verificar se a rota
     //pode ser acessada ou não
@@ -33,5 +29,3 @@ export class AdminGuard implements CanActivate {
         }
     }
 }
-
-
